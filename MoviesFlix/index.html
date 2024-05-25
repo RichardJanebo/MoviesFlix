@@ -7,7 +7,7 @@
 </head>
 
 <body class="centralize">
-    <form>
+    <form class="formCenter">
         <div class="form-field">
             <div><label>Email</label></div>
             <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()"/>
@@ -26,6 +26,9 @@
             <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
         </div>
         <div>
+            <button type="button" class="solid" id="btn_google">Google</button>
+        </div>
+        <div>
             <button type="button" class="outline" onclick="register()">Registrar</button>
         </div>
     </form>
@@ -41,5 +44,6 @@
 <script src="index.js"></script>
 <script src="validations.js"></script>
 <script src="loading.js"></script>
+<script src="loginGoogle.js"></script>
 
 </html>
