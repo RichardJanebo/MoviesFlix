@@ -6,7 +6,12 @@
 </head>
 
 <body class="centralize">
-    <form>
+    <form class="formCenter">
+        <div>
+            <div><label>Nome</label></div>
+            <input type="text" placeholder="seu nome" required id="name_txt"/>
+            
+        </div>
         <div class="form-field">
             <div><label>Email</label></div>
             <input type="email" placeholder="seu@email.com"
@@ -29,6 +34,7 @@
                 Senha deve ter pelo menos 6 caracteres
             </div>
         </div>
+        
         <div class="form-field">
             <div><label>Confirmar senha</label></div>
             <input type="password" placeholder="Confirmar senha"
@@ -36,6 +42,9 @@
             <div class="error" id="password-doesnt-match-error">
                 Senha e Confirmar senha devem ser iguais
             </div>
+        </div>
+        <div class="form-field">
+            <input type="date" name="data" id="data_nascimento" required>
         </div>
         <div>
             <button type="button" class="solid" disabled="true"
@@ -54,6 +63,8 @@
 
 <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
 <script src="../../firebase-init.js"></script>
 
 <script src="register.js"></script>

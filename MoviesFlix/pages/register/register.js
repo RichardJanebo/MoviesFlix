@@ -30,12 +30,23 @@ function onChangeConfirmPassword() {
 
 function register() {
     showLoading();
-
+    const name = document.querySelector("#name_txt").value
     const email = form.email().value;
     const password = form.password().value;
+    const dataNasc = document.querySelector("#data_nascimento").value
+
+    const user ={
+        nome:name,
+        email:email,
+        data_Nascim :dataNasc,
+
+    }
+    createUserInDataBase(user)
     firebase.auth().createUserWithEmailAndPassword(
         email, password
     ).then(() => {
+        
+        
         hideLoading();
         window.location.href = "../../pages/home/home.html";
     }).catch(error => {
@@ -92,4 +103,14 @@ const form = {
     passwordMinLengthError: () => document.getElementById('password-min-length-error'),
     passwordRequiredError: () => document.getElementById('password-required-error'),
     registerButton: () => document.getElementById('register-button')
+}
+
+const createUserInDataBase = (user)=>{
+
+    const db = firebase.firestore()
+    db.collection("users").add(
+        user
+       
+    )
+    
 }
