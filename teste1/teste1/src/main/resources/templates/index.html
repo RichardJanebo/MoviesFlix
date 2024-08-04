@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerenciar Nomes</title>
+</head>
+<body>
+    <h1>Gerenciar Nomes</h1>
+    <input type="text" id="texto" placeholder="Digite um nome">
+    <button id="enviar">Adicionar</button>
+    <h2>Lista de Nomes</h2>
+    <ul id="listaNomes"></ul>
+
+    <script>
+       
+
+        const btn = document.querySelector("#enviar");
+        btn.addEventListener("click", adicionar);
+
+        function adicionar() {
+            const texto = document.querySelector("#texto").value;
+            fetch("http://localhost:8080/add", { // URL deve corresponder ao endpoint configurado
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome: texto })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao adicionar nome');
+                }
+                return response.json();
+            })
+            
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        }
+
+        
+        
+    </script>
+</body>
+</html>
